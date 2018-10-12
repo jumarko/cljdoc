@@ -1,14 +1,9 @@
-"use strict"
-
-var NSPage = document.querySelector(".ns-page")
-var DocPage = document.querySelector("#doc-html")
-
-if (NSPage) {
-  initSrollIndicator()
-  initToggleRaw()
+function isNSPage() {
+  document.querySelector(".ns-page")
 }
-if (DocPage) {
-    initDocTitle()
+
+function isDocPage() {
+  document.querySelector("#doc-html")
 }
 
 function initSrollIndicator() {
@@ -123,7 +118,7 @@ function initDocTitle () {
     changeTitle()
 }
 
-(function() {
+function trackScrollPosition() {
   var scrollPosData = JSON.parse(localStorage.getItem("sidebarScrollPos"))
   var page = window.location.pathname.split("/").slice(0,5).join("/")
 
@@ -132,4 +127,6 @@ function initDocTitle () {
   }
 
   localStorage.removeItem("sidebarScrollPos")
-})();
+}
+
+export { initSrollIndicator, initToggleRaw, initDocTitle, trackScrollPosition, isNSPage, isDocPage }
