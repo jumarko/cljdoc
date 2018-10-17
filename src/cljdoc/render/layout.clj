@@ -54,7 +54,7 @@
                 [:div.sans-serif
                  contents]
                 [:div#cljdoc-switcher]
-                [:script {:src "/js-compiled/index.js"}]
+                [:script {:src "/js/index.js"}]
                 (highlight-js)]))
 
 (defn sidebar-title [title]

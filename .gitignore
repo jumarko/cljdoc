@@ -13,5 +13,6 @@ project.clj
 .cpcache
 .DS_Store
 .cache
-resources/public/js-compiled
 node_modules
+.envrc
+resources-compiled
