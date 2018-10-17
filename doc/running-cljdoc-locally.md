@@ -71,12 +71,11 @@ for `muuntaja` from a local Jar and Git repository:
 
 ---
 
+
 # JS Setup
 
 ```
 npm install -g parcel
-parcel build resources/public/js/index.js -d resources/public/js-compiled/
-# watch is broken as it tries to serve node modules using the clojure server
-# (which doesn't serve them in any way)
-parcel watch resources/public/js/index.js -d resources/public/js-compiled/
+./script/parcel build    # production build
+./script/parcel watch    # watch mode
 ```
