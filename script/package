@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 set -eou pipefail
+rev=$(git rev-parse HEAD)
+dir="target"
+zipfile="$dir/cljdoc-$rev.zip"
 
 ./script/parcel build
-git archive HEAD -o /tmp/cljdoc.zip
-zip -ur /tmp/cljdoc.zip resources-compiled
+mkdir "$dir"
+git archive HEAD -o "$zipfile"
+zip -ur "$zipfile" resources-compiled

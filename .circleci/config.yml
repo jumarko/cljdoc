@@ -37,8 +37,8 @@ jobs:
       - run: ./script/package
 
       - store_artifacts:
-          path: /tmp/cljdoc.zip
-          destination: /cljdoc-$CIRCLE_SHA1.zip
+          path: ~/repo/target
+          destination: /
 
       - save_cache:
           paths:
