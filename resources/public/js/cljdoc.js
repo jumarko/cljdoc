@@ -1,9 +1,9 @@
 function isNSPage() {
-  document.querySelector(".ns-page")
+  return document.querySelector(".ns-page")
 }
 
 function isDocPage() {
-  document.querySelector("#doc-html")
+  return document.querySelector("#doc-html")
 }
 
 function initSrollIndicator() {
@@ -69,17 +69,6 @@ function initToggleRaw() {
   addToggleHandlers()
 }
 
-window.onbeforeunload = function(){
-  var sidebar = Array.from(document.querySelectorAll(".js--sidebar"))[0]
-  if (sidebar) {
-    var scrollTop = sidebar.scrollTop
-    var page = window.location.pathname.split("/").slice(0,5).join("/")
-    var data = {"page": page, "scrollTop": scrollTop}
-    console.log(data)
-    localStorage.setItem("sidebarScrollPos", JSON.stringify(data))
-  }
-};
-
 function initDocTitle () {
     var mainScrollView = document.querySelector(".main-scroll-view")
     var docHtml = document.querySelector("#doc-html")
@@ -118,7 +107,7 @@ function initDocTitle () {
     changeTitle()
 }
 
-function trackScrollPosition() {
+function restoreSidebarScrollPos() {
   var scrollPosData = JSON.parse(localStorage.getItem("sidebarScrollPos"))
   var page = window.location.pathname.split("/").slice(0,5).join("/")
 
@@ -129,4 +118,9 @@ function trackScrollPosition() {
   localStorage.removeItem("sidebarScrollPos")
 }
 
-export { initSrollIndicator, initToggleRaw, initDocTitle, trackScrollPosition, isNSPage, isDocPage }
+export { initSrollIndicator,
+         initToggleRaw,
+         initDocTitle,
+         restoreSidebarScrollPos,
+         isNSPage,
+         isDocPage }
