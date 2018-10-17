@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+echo parcel $1 resources/public/js/index.js -d resources/public/js-compiled/
+parcel $1 resources/public/js/index.js -d resources/public/js-compiled/
