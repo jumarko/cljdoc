@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+./script/parcel build
+git archive HEAD -o /tmp/cljdoc.zip
+zip -ur /tmp/cljdoc.zip resources-compiled
